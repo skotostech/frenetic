@@ -25,6 +25,7 @@ export default (() => {
         };
 
         update() {
+            this.element.width = this.element.parentNode.getBoundingClientRect().width;
             let drawWidth = this.element.width / 3;
             let drawHeight = this.element.height / 3;
 

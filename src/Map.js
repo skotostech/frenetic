@@ -20,6 +20,7 @@ export default (() => {
         }
 
         drawMap(data) {
+            this.element.width = this.element.parentNode.getBoundingClientRect().width;
             this.mapSegments = data ? data.match(new RegExp(/[-\w]+,[-\w]+,[-\w]+,[#\w]+,[-\w.]+/g)) : this.mapSegments;
             this.context.clearRect(0, 0, this.element.width, this.element.height);
             this.context.fillStyle = 'black';

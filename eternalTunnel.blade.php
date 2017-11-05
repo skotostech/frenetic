@@ -134,17 +134,23 @@
                 </div>
                 <div class="row">
                     <div class="status column">
-                        <canvas class="canvas status"></canvas>
+                        <div>
+                            <canvas class="canvas status"></canvas>
+                        </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="compass column">
-                        <canvas class="canvas compass"></canvas>
+                        <div>
+                            <canvas class="canvas compass"></canvas>
+                        </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="map column">
-                        <canvas class="canvas map"></canvas>
+                        <div>
+                            <canvas class="canvas map"></canvas>
+                        </div>
                     </div>
                 </div>
                 <div class="row">

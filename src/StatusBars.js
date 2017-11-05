@@ -34,17 +34,21 @@ export default (() => {
         }
 
         update = function () {
+            this.element.width = this.element.parentNode.getBoundingClientRect().width;
             this.context.clearRect(0, 0, this.element.width, this.element.height);
-            let barWidth = this.element.width / 4;
+            let bufferWidth = 5;
+            let bars = Object.keys(this.status).length;
+            let barWidth = (this.element.width- ((bars - 1) * bufferWidth)) / bars;
             let barNumber = 0;
 
             for (let bar in this.status) {
                 this.context.fillStyle = this.status[bar].color;
                 let barHeight = (this.status[bar].value / 100) * this.element.height;
-                this.context.fillRect((barWidth * barNumber) + 5, this.element.height, barWidth, -barHeight);
+                let leftBoundary = (barWidth * barNumber) + (bufferWidth * barNumber);
+                this.context.fillRect(leftBoundary, this.element.height, barWidth, -barHeight);
                 this.context.fillStyle = 'black';
                 this.context.font = (barWidth / 2) + 'px sans-serif';
-                this.context.fillText(this.status[bar].tag, (barWidth * barNumber) + (barWidth / 2) - (barWidth / 8), this.element.height - 5);
+                this.context.fillText(this.status[bar].tag, leftBoundary + (barWidth * (3 / 8)), this.element.height - 5);
                 barNumber++;
             }
         };
